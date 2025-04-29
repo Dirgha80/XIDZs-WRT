@@ -17,7 +17,7 @@ fi
 echo "Tunnel Installed: $(opkg list-installed | grep -e luci-app-openclash -e luci-app-nikki -e luci-app-passwall | awk '{print $1}' | tr '\n' ' ')"
 
 # Set login root password
-(echo "xidz"; sleep 2; echo "xidz") | passwd > /dev/null
+(echo "sijitekowolu"; sleep 2; echo "sijitekowolu") | passwd > /dev/null
 
 # Set hostname and Timezone to Asia/Jakarta
 echo "Set hostname and Timezone to Asia/Jakarta"
