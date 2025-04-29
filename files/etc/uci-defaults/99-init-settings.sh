@@ -21,7 +21,7 @@ echo "Tunnel Installed: $(opkg list-installed | grep -e luci-app-openclash -e lu
 
 # Set hostname and Timezone to Asia/Jakarta
 echo "Set hostname and Timezone to Asia/Jakarta"
-uci set system.@system[0].hostname='XIDZ-WRT'
+uci set system.@system[0].hostname='HOUJIE-WRT'
 uci set system.@system[0].timezone='WIB-7'
 uci set system.@system[0].zonename='Asia/Jakarta'
 uci -q delete system.ntp.server
@@ -45,7 +45,7 @@ uci set network.WAN2.device='eth2'
 uci set network.WAN2.metric='10'
 uci set network.MODEM=interface
 uci set network.MODEM.proto='dhcp'
-uci set network.MODEM.device='wwan0'
+uci set network.MODEM.device='usb0'
 uci set network.MODEM.metric='15'
 uci set network.MM=interface
 uci set network.MM.proto='modemmanager'
@@ -137,11 +137,6 @@ chmod -R +x /usr/bin
 # netdata
 mv /usr/share/netdata/web/lib/jquery-3.6.0.min.js /usr/share/netdata/web/lib/jquery-2.2.4.min.js
 
-# Setup Auto Vnstat Database Backup
-echo "Setup Auto Vnstat Database Backup"
-mkdir /etc/vnstat
-chmod +x /etc/init.d/vnstat_backup
-bash /etc/init.d/vnstat_backup enable
 
 # vnstati
 echo "configuring netdata"
@@ -190,9 +185,6 @@ else
   rm -rf /etc/config/nikki
   rm -rf /etc/nikki
 fi
-
-# remove
-rm -rf /www/luci-static/resources/view/status/include/25_storage.js
 
 # Setup PHP
 echo "setup php"
